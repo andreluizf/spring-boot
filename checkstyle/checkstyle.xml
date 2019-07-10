@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+          "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+          "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <property name="severity" value="info"/>
+    <module name="TreeWalker">
+        <!-- Checagem de complexidade tem severidade info -->
+        <property name="id" value="Complexity"/>
+
+        <module name="BooleanExpressionComplexity"/>
+        <module name="ClassDataAbstractionCoupling"/>
+        <module name="ClassFanOutComplexity"/>
+        <module name="NPathComplexity"/>
+        <module name="JavaNCSS"/>
+    </module>
+    <module name="TreeWalker">
+        <!-- Checagem de naming conventions tem severidade warning -->
+        <property name="severity" value="warning"/>
+        <property name="id" value="Complexity"/>
+
+        <module name="ConstantName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+    </module>
+    <module name="TreeWalker">
+        <!-- Checagens de emulacao de ferramenta de analise estatica do SCA -->
+        <property name="severity" value="warning"/>
+        <property name="id" value="SCA-Static-Analisys"/>
+        <module name="IllegalImport">
+            <property name="id" value="SCA-Static-Analisys-Weak-Random"/>
+            <property name="illegalClasses" value="java.util.Random"/>
+            <message key="import.illegal" value="Use a classe SecureRandom ao inves de Random"/>
+        </module>
+        <module name="IllegalImport">
+            <property name="id" value="SCA-Static-Analisys-Body-ClassName-Heuristics"/>
+            <property name="severity" value="error"/> <!-- Dispara um error de alta criticididade na ferramenta :S -->
+            <property name="regexp" value="true"/>
+            <property name="illegalClasses" value="^.*(\.Body)$"/> <!-- O nome da classe nao pode ser Body -->
+            <message key="import.illegal" value="A classe {0} ira disparar o checador de analise estatica do C6 como uma ocorrencia de alta criticidade. Mude seu nome para algo diferente de Body (e.g RequestBody ou ResponseBody)"/>
+        </module>
+    </module>
+ </module>

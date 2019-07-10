@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+    <suppress>
+        <notes><![CDATA[
+      file name: ojdbc6-11.2.0.3.jar
+      ]]></notes>
+        <gav regex="true">^oracle:ojdbc6:.*$</gav>
+        <cpe>cpe:/a:oracle:jdbc</cpe>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[
+		 file name: dsapp-server-4.13.3.jar
+		 ]]></notes>
+        <gav regex="true">^com\.vasco:dsapp-server:.*$</gav>
+        <cpe>cpe:/a:vasco:digipass</cpe>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[ A versao do logback carregada pelo projeto eh a 1.2.3, que nao em esse problema ]]></notes>
+        <gav regex="true">^org.owasp:security-logging-logback:1.1.6$</gav>
+        <cpe>cpe:/a:logback:logback:1.1.6</cpe>
+        <cve>CVE-2017-5929</cve>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[ A issue é referente ao modulo slf4j-ext. Que não é utilizado]]></notes>
+        <gav regex="true">^org\.slf4j:.*$</gav>
+        <cpe>cpe:/a:slf4j:slf4j</cpe>
+    </suppress>    
+</suppressions>
